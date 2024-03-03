@@ -5,87 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <style>
-        body{
-            
-           margin-top: 10%;
-           margin-left: 20%;
-
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-       table{
-        width: 50% ;
-       }
-        .title{
-         margin-right:50rem;
-            text-align: center;
-            color: rgb(113, 61, 116);
-             font-size:6rem;
-           font-weight: 600;
+        .calculator {
+            background-color: #fff;
+            border: 2px solid black; 
+            border-radius: 10px;
+            overflow: hidden;
+            width:40%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
         }
-        input[type="button"]{
-            border: solid 3px black; 
-            color: white; 
+        .display {
             width: 100%;
-            background-color:#13c8c8  ;
-            width: 100%;
-            height:100px ;
-            font-size: xx-large;
-           font-weight: 700;
+            height: 70px;
+            text-align: right;
+            font-size: 2rem;
+            padding: 2px;
+            border: none;
+            outline: none;
+            background-color: white;
         }
-        input[type="text"]{
-            border: solid 3px black; 
-            background-color:#fcf7f7 ;
-            width: 99%;
-            height:90px ;
-            font-size: xx-large;
-           font-weight: 700;
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
         }
-        
+        .button {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 20px 0;
+            background-color: #ffffff; 
+            transition: background-color 0.3s, box-shadow 0.3s; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .button:hover {
+            background-color: #e0e0e0; 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+        }
+        .button.operator, .button.clear, .button.equal {
+            background-color:lightseagreen;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
-  <div class="title">Calculator</div>  
-  <table border="3px">
-    <tr>
-    <td colspan="3"><input type="text" id="result"></td>
-    <td> <input type="button" value="c" onclick="clr()"></td>
-    </tr>
-    <tr>
-     <td> <input type="button" value="1" onclick="display('1')"></td>
-     <td> <input type="button" value="2" onclick="display('2')"></td>
-     <td> <input type="button" value="3" onclick="display('3')"></td>
-     <td> <input type="button" value="/" onclick="display('/')"></td>
-    </tr>
-    <tr>
-        <td> <input type="button" value="4" onclick="display('4')"></td>
-        <td> <input type="button" value="5" onclick="display('5')"></td>
-        <td> <input type="button" value="6" onclick="display('6')"></td>
-        <td> <input type="button" value="-" onclick="display('-')"></td>
-       </tr>
-       <tr>
-        <td> <input type="button" value="7" onclick="display('7')"></td>
-        <td> <input type="button" value="8" onclick="display('8')"></td>
-        <td> <input type="button" value="9" onclick="display('9')"></td>
-        <td> <input type="button" value="+" onclick="display('+')"></td>
-       </tr>
-       <tr>
-        <td> <input type="button" value="." onclick="display('.')"></td>
-        <td> <input type="button" value="0" onclick="display('0')"></td>
-        <td> <input type="button" value="=" onclick="equate()"></td>
-        <td> <input type="button" value="*" onclick="display('*')"></td>
-       </tr>
-  </table>
-  <script type="text/javascript">
-    function clr(){
-document.getElementById("result").value=" ";
-    }
-function equate(){
-let x=document.getElementById("result").value;
-let y=eval(x);
-document.getElementById("result").value=y;
-}
-function display(val){
-document.getElementById("result").value+=val;
-}
-  </script>
-</body> 
+    <div class="calculator">
+        <input type="text" class="display" id="result" readonly>
+        <div class="buttons">
+            <button class="button clear" onclick="clr()">C</button>
+            <button class="button operator" onclick="display('/')">/</button>
+            <button class="button operator" onclick="display('*')">*</button>
+            <button class="button operator" onclick="display('-')">-</button>
+            <button class="button" onclick="display('7')">7</button>
+            <button class="button" onclick="display('8')">8</button>
+            <button class="button" onclick="display('9')">9</button>
+            <button class="button operator" onclick="display('+')">+</button>
+            <button class="button" onclick="display('4')">4</button>
+            <button class="button" onclick="display('5')">5</button>
+            <button class="button" onclick="display('6')">6</button>
+            <button class="button" onclick="display('1')">1</button>
+            <button class="button" onclick="display('2')">2</button>
+            <button class="button" onclick="display('3')">3</button>
+            <button class="button double" onclick="display('0')">0</button>
+            <button class="button" onclick="display('.')">.</button>
+            <button class="button equal" onclick="equate()">=</button>
+        </div>
+    </div>
+    <script>
+        function clr() {
+            document.getElementById("result").value = "";
+        }
+        function equate() {
+            let x = document.getElementById("result").value;
+            let y = eval(x);
+            document.getElementById("result").value = y;
+        }
+        function display(val) {
+            document.getElementById("result").value += val;
+        }
+    </script>
+</body>
 </html>
