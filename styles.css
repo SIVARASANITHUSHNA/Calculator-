@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  
+}
+
+.calculator {
+    background-color: #fff;
+    border: 3px solid rgb(251, 248, 248); 
+    border-radius: 10px;
+    overflow: hidden;
+    width:20%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    position: absolute;
+}
+
+.display {
+    width: 100%;
+    height: 70px;
+    margin-right: 8%;
+    padding: 5%;
+    outline: none;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    height: 80%;
+    width: calc(100% - 10px);
+    margin-right: 10%;
+    text-align: end;
+    font-size: 1.5em;
+    border: 3px ridge;
+    box-shadow: 0 0 10px rgb(241, 238, 238); 
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    padding: 5%;
+    box-shadow:  1px 1px 5px lightseagreen;
+}
+
+.button {
+    border:1px radius ;
+    border-radius: 10%;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 20px 0;
+    background-color: #ffffff; 
+    transition: background-color 0.3s, box-shadow 0.3s; 
+    box-shadow: 0 4px 8px rgba(250, 249, 249, 0.974)
+}
+
+.button:hover {
+    background-color: #e0e0e0; 
+    box-shadow: 0 6px 12px rgba(248, 247, 247, 0.985); 
+}
+
+.button.operator, .button.clear, .button.equal {
+    background-color: lightseagreen;
+    color: #fff;
+}

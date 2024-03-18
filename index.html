@@ -4,63 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: white;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .calculator {
-            background-color: #fff;
-            border: 2px solid black; 
-            border-radius: 10px;
-            overflow: hidden;
-            width:40%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
-        }
-        .display {
-            width: 100%;
-            height: 70px;
-            text-align: right;
-            font-size: 2rem;
-            padding: 2px;
-            border: none;
-            outline: none;
-            background-color: white;
-        }
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-        }
-        .button {
-            border: none;
-            outline: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            padding: 20px 0;
-            background-color: #ffffff; 
-            transition: background-color 0.3s, box-shadow 0.3s; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .button:hover {
-            background-color: #e0e0e0; 
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
-        }
-        .button.operator, .button.clear, .button.equal {
-            background-color:lightseagreen;
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <div class="calculator">
-        <input type="text" class="display" id="result" readonly>
+        <div class="display">
+            <input type="text" id="result" readonly placeholder="0.00">
+        </div>
         <div class="buttons">
             <button class="button clear" onclick="clr()">C</button>
             <button class="button operator" onclick="display('/')">/</button>
@@ -81,18 +31,6 @@
             <button class="button equal" onclick="equate()">=</button>
         </div>
     </div>
-    <script>
-        function clr() {
-            document.getElementById("result").value = "";
-        }
-        function equate() {
-            let x = document.getElementById("result").value;
-            let y = eval(x);
-            document.getElementById("result").value = y;
-        }
-        function display(val) {
-            document.getElementById("result").value += val;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
